@@ -1,0 +1,214 @@
+/* ===== VARIÁVEIS CSS ===== */
+:root {
+  --bg: #f7fafc;
+  --card: #fff;
+  --muted: #6b7280;
+  --accent: #6366f1;
+  --accent-2: #4f46e5;
+  --success: #10b981;
+  --danger: #ef4444;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(15, 23, 42, .08);
+}
+
+/* ===== RESET E BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  line-height: 1.45;
+  background: var(--bg);
+  color: #111827;
+  padding: 24px;
+  margin: 0;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.shell {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 20px;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* ===== TIPOGRAFIA ===== */
+p.lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== GRID SYSTEM ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* ===== COMPONENTES ===== */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+/* ===== FORMULÁRIOS ===== */
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+input.form,
+textarea.form,
+select.form {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6e9ef;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+textarea.form {
+  min-height: 80px;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #e6e9ef;
+}
+
+.btn-warn {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+/* ===== TABELAS ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead th {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+tbody td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #f8fafc;
+}
+
+tbody tr:hover {
+  background: #fbfdff;
+}
+
+/* ===== UTILITÁRIOS ===== */
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.completed {
+  color: var(--success);
+  text-decoration: line-through;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-wrap {
+  background: #eef2ff;
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 12px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  width: 0;
+  transition: width .4s ease;
+}
+
+/* ===== DROP TARGET ===== */
+.drop-target {
+  border: 2px dashed #e6e9ef;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--muted);
+  user-select: none;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (min-width: 880px) {
+  .grid {
+    grid-template-columns: 360px 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
