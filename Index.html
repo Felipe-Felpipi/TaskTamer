@@ -15,4 +15,32 @@
             </div>
             <div class="tiny">Versão: <strong>v2 — export/import</strong></div>
     </header>
+    <div class="grid">
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <strong>Nova tarefa</strong>
+                <div class="tiny">Auto-save local</div>
+            </div>
+            <label for="task-name">Título</label>
+            <input id="task-name" class="form" placeholder="O que precisa ser feito?" autocomplete="off" />
+            
+            <label for="assigned-to" style="margin-top:8px">Responsável</label>
+            <input id="assigned-to" class="form" placeholder="Quem é?" autocomplete="off" />
+
+            <label for="task-desc" style="margin-top:8px">Descrição</label>
+            <textarea id="task-desc" class="form" placeholder="Detalhes... (opcional)"></textarea>
+
+            <div class="row" style="margin-top:12px">
+                <button id="add-task" class="btn btn-primary" type="button">Adicionar</button>
+                <button id="clear-all" class="btn btn-ghost" type="button">Limpar</button>
+            </div>
+            <hr style="margin:14px 0;border:none;border-top:1px solid #f1f5f9" />
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button id="export-file" class="btn btn-ghost" type="button">Exportar arquivo (.tasktamer)</button>
+                <label class="btn btn-ghost" for="import-file" style="cursor:pointer;user-select:none">Importar arquivo</label>
+                <input id="import-file" type="file" accept="application/json" style="display:none" />
+                <button id="download-json" class="btn btn-ghost" type="button">Baixar JSON (manual)</button>
+                <button id="reset-local" class="btn btn-danger" type="button">Reset local</button>
+            </div>
+
 </body>
