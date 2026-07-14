@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: tasktamer-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      # Render injeta PORT automaticamente — não defina manualmente
+      - key: CORS_ORIGIN
+        value: https://felipe-felpipi.github.io

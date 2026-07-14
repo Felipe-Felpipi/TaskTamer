@@ -51,10 +51,25 @@ Abra `http://localhost:5173`. A interface consome a API em `http://localhost:333
 
 ## Deploy
 
-- **Frontend:** GitHub Pages, Vercel ou Netlify (build estático em `frontend/dist`)
-- **Backend:** Render, Railway ou Fly.io (precisa de um processo Node rodando; GitHub Pages não serve backend)
+GitHub Pages só serve arquivos estáticos, então o front e o back são publicados em lugares diferentes:
 
-Lembre-se de configurar `VITE_API_URL` no frontend apontando para a URL pública do backend em produção.
+### Backend → Render (grátis)
+
+1. Crie conta em [render.com](https://render.com) e conecte sua conta do GitHub
+2. New → Web Service → selecione este repositório (o `render.yaml` na raiz já configura tudo: root dir `backend`, build e start command)
+3. Render vai te dar uma URL pública, ex: `https://tasktamer-api.onrender.com`
+4. No serviço, confirme a variável `CORS_ORIGIN` apontando para a URL do GitHub Pages (`https://<seu-usuario>.github.io`)
+
+> Plano free do Render "dorme" depois de alguns minutos sem uso — a primeira requisição depois de um tempo parado demora ~30s pra acordar. Normal.
+
+### Frontend → GitHub Pages (via GitHub Actions)
+
+1. No repositório, vá em **Settings → Pages** e em "Build and deployment" selecione **Source: GitHub Actions**
+2. Vá em **Settings → Secrets and variables → Actions** e crie o secret `VITE_API_URL` com o valor `https://tasktamer-api.onrender.com/api` (a URL do passo anterior + `/api`)
+3. Dê push na branch `main` — o workflow em `.github/workflows/deploy-frontend.yml` builda o front e publica automaticamente
+4. O site fica em `https://<seu-usuario>.github.io/TaskTamer/`
+
+O `vite.config.ts` já está com `base: '/TaskTamer/'` para bater com esse endereço. Se o repositório tiver outro nome, ajuste esse valor.
 
 ## Licença
 
